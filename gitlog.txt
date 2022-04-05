@@ -1,0 +1,35 @@
+commit 46e89bf632c255f73a9c8047ac12d8fd4f709364
+Author: Alian <71174590+alian1001@users.noreply.github.com>
+Date:   Tue Apr 5 20:33:13 2022 +0800
+
+    Update hello.html
+    
+    Update to current hello.html file
+
+commit b9eae98f686f0c700cf04724a8080cca1b0a074d
+Author: Christofer Bryan <22779851@student.uwa.edu.au>
+Date:   Tue Apr 5 20:31:06 2022 +0800
+
+    Create hello.html
+    
+    Created a file hello.html
+
+commit 2c019621193bf9ddf3f9389e794756ad7893a442
+Author: Alian <71174590+alian1001@users.noreply.github.com>
+Date:   Tue Apr 5 20:18:46 2022 +0800
+
+    Create Project2Criterion.pdf
+    
+    Project Criterion
+
+commit 1bc82ad82ebfbeb576592af17a20d3b7b2dd9d56
+Author: Alian <71174590+alian1001@users.noreply.github.com>
+Date:   Tue Apr 5 20:17:23 2022 +0800
+
+    Update README.md
+
+commit 2da61f9b6bf5b711d8d8dd8ce2c4b51d23797c7f
+Author: Alian <71174590+alian1001@users.noreply.github.com>
+Date:   Tue Apr 5 20:16:26 2022 +0800
+
+    Initial commit
