@@ -1,0 +1,2 @@
+FLASK_APP=wordle.py
+FLASK_ENV=development
