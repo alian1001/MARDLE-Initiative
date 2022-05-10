@@ -8,11 +8,12 @@ from app.models import User
 
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
     return render_template('index.html')
 
+
 @app.route('/game')
+@login_required
 def game():
     return render_template('game.html', title='Game')
 
