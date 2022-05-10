@@ -17,6 +17,11 @@ def index():
 def game():
     return render_template('game.html', title='Game')
 
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', title='Profile')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -37,8 +42,12 @@ def login():
 
 @app.route('/logout')
 def logout():
-    logout_user()
-    return redirect(url_for('index'))
+    if current_user.is_authenticated:
+        logout_user()
+        return render_template('logout.html')
+    else:
+        flash('failed')
+        return redirect(url_for('index'))
 
 
 @app.route('/register', methods=['GET', 'POST'])
