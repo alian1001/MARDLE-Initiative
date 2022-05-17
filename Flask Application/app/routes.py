@@ -1,3 +1,5 @@
+from crypt import methods
+from http.client import BAD_REQUEST
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
@@ -63,3 +65,34 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+'''
+route for handling wordle guesses
+'''
+#@app.route('', methods=['GET', 'POST'])
+def guess_wordle():
+    args=request.args or {}
+    if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=6:
+        return bad_request('Guess must be a six letter word!')
+    response=jsonify({"output":wordle_array(args['guess'].upper(), //target//)}) #need to import jsonify module
+    return response
+
+'''
+guess array 
+'''
+#this function compares the guess word and the real word letter by letter
+def wordle_array(guess, target):
+    guess_array=[0]*6
+    target_array=[True]*6
+
+    for i in range(6):
+        if guess[i]==target[i]:
+            guess_array[i]=2
+            target_array[i]=False
+    for i, a in enumerate(guess):
+        for j, b in enumerate(target):
+            if a==b and guess_array[i]==0 and target_array[j]:
+                guess_array[i]=1
+                target_array[j]=False
+    return guess_array
+    
