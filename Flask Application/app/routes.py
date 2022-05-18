@@ -1,6 +1,6 @@
 from crypt import methods
 from http.client import BAD_REQUEST
-from flask import render_template, flash, redirect, url_for, request
+from flask import has_request_context, jsonify, render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
@@ -73,9 +73,9 @@ route for handling wordle guesses
 def guess_wordle():
     args=request.args or {}
     if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=6:
-        return bad_request('Guess must be a six letter word!')
-    response=jsonify({"output":wordle_array(args['guess'].upper(), //target//)}) #need to import jsonify module
-    return response
+        return has_request_context('Guess must be a six letter word!')
+    #response=jsonify({"output":wordle_array(args['guess'].upper(), //target//)}) #need to import jsonify module
+    #return response
 
 '''
 guess array 
