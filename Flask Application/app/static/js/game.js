@@ -56,7 +56,7 @@ document.addEventListener("keydown", (e) => {
 
     let pressedKey=String(e.key);
 
-    if(pressedKey=="Backspace" && current_cell!=0){
+    if(pressedKey=="Backspace" && current_box!=0){
         delete_letter()
         return
     }
@@ -75,35 +75,37 @@ document.addEventListener("keydown", (e) => {
         for(let i=0; i<6; i++){
             guess+=current_guess[i];
         }
-        const xhttp=new XMLHttpRequest();
 
-        xhttp.open("GET", url, true);
-        xhttp.onload=function(e){
-            let row=document.getElementsByClassName("letters_row")[6-guesses_remaining];
-            let result=JSON.parse(xhttp.responseText).outcome;
-            let sum=0;
-            for(let i=0; i<6; i++){
-                if(result[i]==2){
-                    sum+=result[i];
-                    row.children[i].classList.add("correct");
-                }
-                if(result[i]==1){
-                    sum+result[i];
-                    row.children[i].classList.add("wrong_position");
-                }
-            }
-            guesses_remaining--;
-            if(sum==10){
-                document.getElementById("congrats").innerHTML="You solved the wordle!";
-            }
-            else{
-                current_box=0;
-                if(guesses_remaining==0){
-                    document.getElementById("congrats").innerHTML="Out of guesses!";
-                }
-            }
-        }
-        xhttp.send();
+        alert(guess);
+        // const xhttp=new XMLHttpRequest();
+
+        // xhttp.open("GET", url, true);
+        // xhttp.onload=function(e){
+        //     let row=document.getElementsByClassName("letters_row")[6-guesses_remaining];
+        //     let result=JSON.parse(xhttp.responseText).outcome;
+        //     let sum=0;
+        //     for(let i=0; i<6; i++){
+        //         if(result[i]==2){
+        //             sum+=result[i];
+        //             row.children[i].classList.add("correct");
+        //         }
+        //         if(result[i]==1){
+        //             sum+result[i];
+        //             row.children[i].classList.add("wrong_position");
+        //         }
+        //     }
+        //     guesses_remaining--;
+        //     if(sum==10){
+        //         document.getElementById("congrats").innerHTML="You solved the wordle!";
+        //     }
+        //     else{
+        //         current_box=0;
+        //         if(guesses_remaining==0){
+        //             document.getElementById("congrats").innerHTML="Out of guesses!";
+        //         }
+        //     }
+        // }
+        // xhttp.send();
 
     }
 })
