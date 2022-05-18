@@ -50,6 +50,8 @@ function delete_letter(){
 }
 
 document.addEventListener("keydown", (e) => {
+
+
     if(guesses_remaining==0){
         return
     }
@@ -61,22 +63,12 @@ document.addEventListener("keydown", (e) => {
         return
     }
 
-    let alphabet=pressedKey.match(/[a-z]/gi);
-
-    if(!alphabet || alphabet.length>1){
-        return
-    }
-    else{
-        insert_letter(pressedKey);
-    }
-
     if(pressedKey=="Enter" && current_box==6){
+        alert("Box is full and you pressed enter key")
         let guess="";
         for(let i=0; i<6; i++){
             guess+=current_guess[i];
         }
-
-        alert(guess);
         // const xhttp=new XMLHttpRequest();
 
         // xhttp.open("GET", url, true);
@@ -108,4 +100,16 @@ document.addEventListener("keydown", (e) => {
         // xhttp.send();
 
     }
+
+    let alphabet=pressedKey.match(/[a-z]/gi);
+
+    if(!alphabet || alphabet.length>1){
+        return
+    }
+    else{
+        insert_letter(pressedKey);
+    }
+
+
+    
 })
