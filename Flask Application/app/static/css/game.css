@@ -1,0 +1,26 @@
+table{
+    border: solid black;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.letter_box{
+    border: solid black;
+    padding: 10px;
+    font-size: 2rem;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.filled_box {
+  border: 3px solid red;
+}
+
+.correct{
+  background-color: green;
+}
+
+.wrong_position{
+  background-color: orange;
+}
