@@ -69,23 +69,23 @@ def register():
 '''
 route for handling wordle guesses
 '''
-#@app.route('', methods=['GET', 'POST'])
+@app.route('/game', methods=['GET', 'POST'])
 def guess_wordle():
     args=request.args or {}
-    if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=6:
-        return has_request_context('Guess must be a six letter word!')
-    #response=jsonify({"output":wordle_array(args['guess'].upper(), //target//)}) #need to import jsonify module
-    #return response
+    if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=5:
+        return has_request_context('Guess must be a five letter word!')
+    response=jsonify({"output":wordle_array(args['guess'].upper(), AGILE)})
+    return response
 
 '''
 guess array 
 '''
 #this function compares the guess word and the real word letter by letter
 def wordle_array(guess, target):
-    guess_array=[0]*6
-    target_array=[True]*6
+    guess_array=[0]*5
+    target_array=[True]*5
 
-    for i in range(6):
+    for i in range(5):
         if guess[i]==target[i]:
             guess_array[i]=2
             target_array[i]=False
