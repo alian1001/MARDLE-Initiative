@@ -70,7 +70,7 @@ document.addEventListener("keydown", (e) => {
         }
         const xhttp=new XMLHttpRequest();
 
-        xhttp.open("GET", "127.0.0.1:5000/game?guess="+guess, true);
+        xhttp.open("GET", "/guess_wordle?guess="+guess, true);
         xhttp.onload=function(e){
             let row=document.getElementsByClassName("letters_row")[6-guesses_remaining];
             let result=JSON.parse(xhttp.responseText).output;

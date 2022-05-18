@@ -69,12 +69,13 @@ def register():
 '''
 route for handling wordle guesses
 '''
-@app.route('/game', methods=['GET', 'POST'])
+@app.route('/guess_wordle', methods=['GET', 'POST'])
 def guess_wordle():
     args=request.args or {}
     if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=5:
         return has_request_context('Guess must be a five letter word!')
-    response=jsonify({"output":wordle_array(args['guess'].upper(), AGILE)})
+    response=jsonify({"output":wordle_array(args['guess'].upper(), 'ALIAS')})
+    response.status_code = 201
     return response
 
 '''
