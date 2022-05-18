@@ -68,7 +68,7 @@ document.addEventListener("keydown", (e) => {
         for(let i=0; i<5; i++){
             guess+=current_guess[i];
         }
-        document.getElementById("trial").innerHTML=current_guess;
+        
         current_guess=[];
         const xhttp=new XMLHttpRequest();
 
@@ -88,7 +88,7 @@ document.addEventListener("keydown", (e) => {
                 }
             }
             guesses_remaining--;
-            
+
             if(sum==10){
                 document.getElementById("congrats").innerHTML="You solved the wordle!";
             }
