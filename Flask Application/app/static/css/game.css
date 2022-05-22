@@ -5,18 +5,17 @@ table{
     margin-right: auto;
 }
 
-body{
-  background-color: #666699;  
-}
 
 .letter_box{
-    border: solid black;
-    background-color: white;
+    border: solid rgb(75, 1, 97);
+    background-color: rgb(232, 170, 248);
     padding: 10px;
     font-size: 2rem;
     justify-content: center;
     text-transform: uppercase;
     text-align: center;
+    border-color: #22227f;
+  
 }
 
 .center{
@@ -44,5 +43,11 @@ body{
 
 .wrong_letter{
   background-color: gray;
+}
+
+.btn-primary{
+  background-color: #44023c;
+  border-color: #44023c;
+  margin-left: 55px;
 }
 
