@@ -7,7 +7,7 @@ body {
     }
 
 h1 {
-    color: #8a1c37;
+    color: gold;
     font-family: comic sans ms;
     text-align: center
 }
@@ -37,10 +37,12 @@ video{
     background-color: #1c1c1c;
     opacity: 0.6;
     text-align: center;
+    font-family: comic sans ms;
   }
 
   .header {
     background-color: #44023c;
+    font-family: comic sans ms;
   }
 
   .content {
