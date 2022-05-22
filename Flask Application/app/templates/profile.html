@@ -2,13 +2,31 @@
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static',
-filename='css/profile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/profile.css') }}">
 
 
-<h1>Hi, {{ current_user.username }}!</h1>
+<h1>Welcome back, {{ current_user.username }}</h1>
+<h2>Here are your profile statistics</h2>
 
-
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Time</th>
+        <th scope="col">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ current_user.username }}</td>
+        <td>60</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+  
 
 
 

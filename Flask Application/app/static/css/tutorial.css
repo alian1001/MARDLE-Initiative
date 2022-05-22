@@ -1,0 +1,14 @@
+#information{
+    text-align: center;
+    font-family: comic sans ms;
+    color: gold;
+}
+
+.btn-primary{
+    background-color: #0a070a;
+    border-color: #151114;
+}
+
+.greentile{
+    color: green;
+}

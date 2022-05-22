@@ -14,6 +14,10 @@ import time, random
 def index():
     return render_template('index.html')
 
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorial.html')
+
 
 @app.route('/game')
 @login_required

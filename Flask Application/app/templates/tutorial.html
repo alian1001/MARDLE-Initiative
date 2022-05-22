@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',
+   filename='css/index.css') }}">       
+</head>
+
+<body>
+    <div id="information">
+        <h1>How To Play</h1>
+        <h2>Gotta guess the word in six tries!</h2>
+        <h3>The theme will be based on marvel-based words, including objects and character names</h3>
+        <h3>The color of the tiles will show you how close you are in guessing the word</h3>
+        <h4>If tile is green, right letter in the right position</h4>
+        <h4>If tile is yellow, right letter in the wrong position</h4>
+        <h4>If tile is grey, letter does not exist in the word</h4>
+        <a href="/game" class="btn btn-primary btn-lg">Let's Play!</a>
+    </div>
+</body>
+   
+{% endblock %}
