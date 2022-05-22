@@ -1,5 +1,9 @@
 body {
-    background-color: white; 
+    background-image: url('/static/assets/abstract.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-color: #44023c;
     }
 
 h1 {
