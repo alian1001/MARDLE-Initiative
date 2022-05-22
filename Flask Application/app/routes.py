@@ -71,7 +71,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-update_time=250 #21600 seconds (word changes every 6 hours)
+update_time=21600 #21600 seconds (word changes every 6 hours)
 words=[]
 with open("app/wordle/wordlist.txt", "r") as word_list:
     for word in word_list:
@@ -104,7 +104,8 @@ def guess_wordle():
     file=open("app/wordle/answer.txt", "r")
     target_word=file.read()
     file.close()
-    response=jsonify({"output":wordle_array(args['guess'].upper(), target_word.upper())})
+    result_array=wordle_array(args['guess'].upper(), target_word.upper())
+    response=jsonify({"output":result_array})
     response.status_code = 201
     return response
 
@@ -126,8 +127,6 @@ def wordle_array(guess, target):
                 guess_array[i]=1
                 target_array[j]=False
     return guess_array
-
-
 
 
     
