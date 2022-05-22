@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static',
+    filename='css/login.css') }}">       
+    </head>
     <h1>Sign In</h1>
 
     <p>Welcome to wordle! In order to play, please login or register first!</p>
@@ -23,6 +28,10 @@
             {% endfor %}
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+        <button name="login" class="btn btn-primary btn-lg" type="submit">Login</button>
     </form>
+
+
+    
 {% endblock %}
+
