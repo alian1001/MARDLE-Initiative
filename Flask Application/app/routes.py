@@ -6,6 +6,7 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
+import time, random
 
 
 @app.route('/')
@@ -66,6 +67,27 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+update_time=250 #21600 seconds (word changes every 6 hours)
+words=[]
+with open("app/wordle/wordlist.txt", "r") as word_list:
+    for word in word_list:
+        words.append(word)
+
+def update_word():
+    file=open("app/wordle/last_updatetime.txt", "r")
+    last_updatetime=int(file.read())
+    file.close()
+    now=int(time.time())
+    if (now-last_updatetime)>update_time:
+        last_updatetime=now
+        random_word=words[random.randrange(len(words))]
+        file=open("app/wordle/answer.txt", "w")
+        file.write(random_word)
+        file.close()
+        file=open("app/wordle/last_updatetime.txt", "w")
+        file.write(str(last_updatetime))
+        file.close()
+
 '''
 route for handling wordle guesses
 '''
@@ -74,7 +96,11 @@ def guess_wordle():
     args=request.args or {}
     if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=5:
         return has_request_context('Guess must be a five letter word!')
-    response=jsonify({"output":wordle_array(args['guess'].upper(), 'ALIAS')})
+    update_word()
+    file=open("app/wordle/answer.txt", "r")
+    target_word=file.read()
+    file.close()
+    response=jsonify({"output":wordle_array(args['guess'].upper(), target_word.upper())})
     response.status_code = 201
     return response
 
@@ -96,4 +122,8 @@ def wordle_array(guess, target):
                 guess_array[i]=1
                 target_array[j]=False
     return guess_array
+
+
+
+
     

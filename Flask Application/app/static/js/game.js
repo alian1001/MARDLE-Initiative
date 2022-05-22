@@ -18,14 +18,23 @@ function init_board(){
         boxes.appendChild(row);
     }
     board.appendChild(boxes);
+    guesses_remaining=NUMBER_OF_GUESSES;
+    current_box=0;
+    current_guess=[];
+    time_elapsed();
 }
 
-function get_timeleft(){
-    const xhttp=new XMLHttpRequest();
-    xhttp.open("GET",url ,true)
-    xhttp.onload=function(e){
-        
-    }
+
+function time_elapsed(){
+    let elapsed_time=0;
+    let timer=setInterval(
+        function(){
+            document.getElementById("time_elapsed").innerHTML=elapsed_time++;
+            if(elapsed_time>=21600){
+                clearInterval(timer);
+                init_board();
+            }
+        }, 1000);
 }
 
 function insert_letter(pressedKey){
@@ -58,7 +67,7 @@ document.addEventListener("keydown", (e) => {
 
     let pressedKey=String(e.key);
 
-    if(pressedKey=="Backspace" && current_box!=0){
+    if(pressedKey=="Backspace" && current_box!=0 && current_box!=1000){
         delete_letter()
         return
     }
@@ -86,16 +95,23 @@ document.addEventListener("keydown", (e) => {
                     sum+result[i];
                     row.children[i].classList.add("wrong_position");
                 }
+                if(result[i]==0){
+                    sum+=result[i];
+                    row.children[i].classList.add("wrong_letter");
+                }
             }
             guesses_remaining--;
 
             if(sum==10){
                 document.getElementById("congrats").innerHTML="You solved the wordle!";
+                document.getElementById("play_again").style.display="block";
+                current_box=1000;
             }
             else{
                 current_box=0;
                 if(guesses_remaining==0){
                     document.getElementById("congrats").innerHTML="Out of guesses!";
+                    document.getElementById("exit").style.display="block";
                 }
             }
         }

@@ -5,12 +5,29 @@ table{
     margin-right: auto;
 }
 
+body{
+  background-color: #666699;  
+}
+
 .letter_box{
     border: solid black;
+    background-color: white;
     padding: 10px;
     font-size: 2rem;
     justify-content: center;
     text-transform: uppercase;
+    text-align: center;
+}
+
+.center{
+  margin: auto; 
+  width: 50%; 
+  text-align: center;
+}
+
+.center2{
+  margin: auto;
+  width: 50%; 
 }
 
 .filled_box {
@@ -24,3 +41,8 @@ table{
 .wrong_position{
   background-color: orange;
 }
+
+.wrong_letter{
+  background-color: gray;
+}
+
