@@ -105,14 +105,6 @@ def guess_wordle():
     target_word=file.read()
     file.close()
     result_array=wordle_array(args['guess'].upper(), target_word.upper())
-<<<<<<< HEAD
-=======
-    # if correct_guess(result_array)==True:
-    #     random_word=words[random.randrange(len(words))]
-    #     file=open("app/wordle/answer.txt", "w")
-    #     file.write(random_word)
-    #     file.close()
->>>>>>> origin/game
     response=jsonify({"output":result_array})
     response.status_code = 201
     return response
