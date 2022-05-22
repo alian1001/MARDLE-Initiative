@@ -101,11 +101,6 @@ def guess_wordle():
     target_word=file.read()
     file.close()
     result_array=wordle_array(args['guess'].upper(), target_word.upper())
-    # if correct_guess(result_array)==True:
-    #     random_word=words[random.randrange(len(words))]
-    #     file=open("app/wordle/answer.txt", "w")
-    #     file.write(random_word)
-    #     file.close()
     response=jsonify({"output":result_array})
     response.status_code = 201
     return response
@@ -128,14 +123,3 @@ def wordle_array(guess, target):
                 guess_array[i]=1
                 target_array[j]=False
     return guess_array
-
-def correct_guess(result_array):
-    for result in result_array:
-        sum+=result
-    if sum==10:
-        return True
-
-
-
-
-    

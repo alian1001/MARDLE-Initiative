@@ -102,9 +102,9 @@ document.addEventListener("keydown", (e) => {
             guesses_remaining--;
 
             if(sum==10){
+                current_box=1000;
                 document.getElementById("congrats").innerHTML="You solved the wordle!";
                 document.getElementById("play_again").style.display="block";
-                current_box=1000;
             }
             else{
                 current_box=0;
