@@ -1,11 +1,12 @@
 #information{
     text-align: center;
     font-family: comic sans ms;
+    color: gold;
 }
 
 .btn-primary{
-    background-color: #44023c;
-    border-color: #44023c;
+    background-color: #0a070a;
+    border-color: #151114;
 }
 
   

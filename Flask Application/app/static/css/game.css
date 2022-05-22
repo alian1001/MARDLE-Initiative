@@ -7,14 +7,15 @@ table{
 
 
 .letter_box{
-    border: solid rgb(75, 1, 97);
-    background-color: rgb(235, 190, 247);
+    border: solid rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
     padding: 10px;
     font-size: 2rem;
     justify-content: center;
     text-transform: uppercase;
     text-align: center;
-    border-color: #22227f;
+    border-color: #ffffff;
+    color: white;
   
 }
 
@@ -30,7 +31,7 @@ table{
 }
 
 .filled_box {
-  border: 3px solid blue;
+  border: 3px solid rgb(255, 0, 0);
 }
 
 .correct{
@@ -46,8 +47,8 @@ table{
 }
 
 .btn-primary{
-  background-color: #44023c;
-  border-color: #44023c;
+  background-color: #d82626;
+  border-color: #e3901c;
   margin-left: 55px;
 }
 

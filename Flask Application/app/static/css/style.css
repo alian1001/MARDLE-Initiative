@@ -1,13 +1,13 @@
 body {
-    background-image: url('/static/assets/abstract.png');
+    
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: cover;
-    background-color: #44023c;
+    background-color: #000000;
     }
 
 h1 {
-    color: #22227f;
+    color: #8a1c37;
     font-family: comic sans ms;
     text-align: center
 }
@@ -34,7 +34,7 @@ video{
     /* Set the fixed height of the footer here */
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
-    background-color: #44023c;
+    background-color: #1c1c1c;
     opacity: 0.6;
     text-align: center;
   }
@@ -46,10 +46,12 @@ video{
   .content {
     max-width: 500px;
     margin: auto;
-    background: rgb(223, 52, 241);
+    background: rgb(76, 76, 76);
     padding: 10px;
-    border: #22227f;
+    border: #7f2228;
     border-radius: 1cm;
-    border-color: #22227f;
+    border-color: #7f2222;
     margin-top: 150px;
+    box-shadow: 2px 2px 5px #333;
+    opacity: 0.9;
   }
