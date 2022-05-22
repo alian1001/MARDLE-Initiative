@@ -67,7 +67,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-update_time=250 #21600 seconds (word changes every 6 hours)
+update_time=21600 #21600 seconds (word changes every 6 hours)
 words=[]
 with open("app/wordle/wordlist.txt", "r") as word_list:
     for word in word_list:
@@ -96,11 +96,17 @@ def guess_wordle():
     args=request.args or {}
     if 'guess' not in args or not args['guess'].isalpha() or len(args['guess'])!=5:
         return has_request_context('Guess must be a five letter word!')
-    update_word()
+    update_word() #only updates the word after 6 hours have elapsed 
     file=open("app/wordle/answer.txt", "r")
     target_word=file.read()
     file.close()
-    response=jsonify({"output":wordle_array(args['guess'].upper(), target_word.upper())})
+    result_array=wordle_array(args['guess'].upper(), target_word.upper())
+    # if correct_guess(result_array)==True:
+    #     random_word=words[random.randrange(len(words))]
+    #     file=open("app/wordle/answer.txt", "w")
+    #     file.write(random_word)
+    #     file.close()
+    response=jsonify({"output":result_array})
     response.status_code = 201
     return response
 
@@ -122,6 +128,12 @@ def wordle_array(guess, target):
                 guess_array[i]=1
                 target_array[j]=False
     return guess_array
+
+def correct_guess(result_array):
+    for result in result_array:
+        sum+=result
+    if sum==10:
+        return True
 
 
 

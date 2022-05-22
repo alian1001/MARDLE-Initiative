@@ -30,9 +30,8 @@ function time_elapsed(){
     let timer=setInterval(
         function(){
             document.getElementById("time_elapsed").innerHTML=elapsed_time++;
-            if(elapsed_time>=21600){
+            if(guesses_remaining==0 || current_box==1000){
                 clearInterval(timer);
-                init_board();
             }
         }, 1000);
 }
