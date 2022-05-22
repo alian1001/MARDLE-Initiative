@@ -3,31 +3,26 @@
     
     {% block content %} 
 <head>
+
  <link rel="stylesheet" href="{{ url_for('static',
 filename='css/game.css') }}">
 
-<!-- still not able to link html to css -->
- 
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
 
-<!--not able to link html to js-->
-
- <script src="{{ url_for('static', filename='js/game.js') }}"></script>
-<!--<script src="game.js"></script>-->
-
-    
 </head>
 
- <body onload="init_board()"> <!--no idea how to call the js script, still only manage to call init_board() -->
+ <body onload="init_board()"> 
     
-    <h1 style="text-align: center;">Guess the word</h1>
-    <h5 style="text-align: center;">Time remaining: <span id="time_left"></span></h5>
-    <div id="wordle_board" style="margin: auto; width: 50%; text-align: center;">
+    <h1 style="text-align: center; color: whitesmoke;">Guess the word</h1>
+    <h5 style="text-align: center;">Time elapsed: <span id="time_elapsed"> </span></h5>
+    <div id="wordle_board" class="center2">
     
     </div>
-    <div id="trial"></div>
-    <div id="congrats"></div>
-
-
+    <div id="congrats" class="center"></div> 
+    <div id="done" class="center">
+        <button type="button" id="exit" onclick="window.location.href='/index';" style="display: none;">Exit</button>
+        <button type="button" id="play_again" onclick="window.location.href='/game';" style="display: none;">Play Again</button>
+    </div>
 
 </body>
 </html>
