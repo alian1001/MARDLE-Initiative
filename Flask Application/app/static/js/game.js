@@ -2,6 +2,7 @@ const NUMBER_OF_GUESSES=6;
 let guesses_remaining=NUMBER_OF_GUESSES;
 let current_box=0;
 let current_guess=[];
+let elapsed_time=0;
 
 function init_board(){
     let board=document.getElementById("wordle_board");
@@ -26,7 +27,6 @@ function init_board(){
 
 
 function time_elapsed(){
-    let elapsed_time=0;
     let timer=setInterval(
         function(){
             document.getElementById("time_elapsed").innerHTML=elapsed_time++;
@@ -104,6 +104,8 @@ document.addEventListener("keydown", (e) => {
             if(sum==10){
                 document.getElementById("congrats").innerHTML="You solved the wordle!";
                 document.getElementById("play_again").style.display="block";
+                document.getElementById("timetaken").innerHTML="Time taken: "+elapsed_time;
+                document.getElementById("guessestaken").innerHTML="Number of guesses taken: "+(6-guesses_remaining);
                 current_box=1000;
             }
             else{
