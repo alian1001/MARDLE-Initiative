@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 FORGO
-=======
-MIDST
->>>>>>> origin/game
